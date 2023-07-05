@@ -2,10 +2,10 @@
 | name        | continent | area     | population | gdp          |
 |-------------|-----------|----------|------------|--------------|
 | Afghanistan |	Asia      | 652230   |	25500100  | 20343000000  |
-| Albania    	| Europe    | 28748    | 2831741    | 12960000000  |
-| Algeria	    | Africa    | 2381741  | 37100000   | 188681000000 |
-| Andorra	    | Europe    | 468      | 78115      | 3712000000   |
-| Angola	    | Africa    | 1246700  | 20609294   | 100990000000 |
+| Albania     | Europe    | 28748    | 2831741    | 12960000000  |
+| Algeria     | Africa    | 2381741  | 37100000   | 188681000000 |
+| Andorra     | Europe    | 468      | 78115      | 3712000000   |
+| Angola      | Africa    | 1246700  | 20609294   | 100990000000 |
 
 
 
@@ -83,10 +83,10 @@ Show the name and capital where the name and the capital have the same number of
 You can use the LENGTH function to find the number of characters in a string
 ```sql
 SELECT name, CASE
-	WHEN continent='Oceania' THEN 'Australasia'
-	ELSE continent END
+WHEN continent='Oceania' THEN 'Australasia'
+ELSE continent END
 FROM world
-	WHERE name LIKE 'N%';
+WHERE name LIKE 'N%';
 ```
 
 12. The capital of Sweden is Stockholm. Both words start with the letter 'S'.
@@ -95,14 +95,14 @@ You can use the function LEFT to isolate the first character.
 You can use <> as the NOT EQUALS operator.
 ```sql
 SELECT name, CASE 
-	WHEN continent='Europe' THEN 'Eurasia'
-	WHEN continent='Asia' THEN 'Eurasia'
-	WHEN continent='North America' THEN 'America'
-	WHEN continent='South America' THEN 'America'
-	WHEN continent='Caribbean' THEN 'America'
-	ELSE continent END
+WHEN continent='Europe' THEN 'Eurasia'
+WHEN continent='Asia' THEN 'Eurasia'
+WHEN continent='North America' THEN 'America'
+WHEN continent='South America' THEN 'America'
+WHEN continent='Caribbean' THEN 'America'
+ELSE continent END
 FROM world
-	WHERE name LIKE 'A%' OR name LIKE 'B%';
+WHERE name LIKE 'A%' OR name LIKE 'B%';
 ```
 
 13. Equatorial Guinea and Dominican Republic have all of the vowels (a e i o u) in the name. They don't count because they have more than one word in the name.
@@ -111,12 +111,12 @@ You can use the phrase name NOT LIKE '%a%' to exclude characters from your resul
 The query shown misses countries like Bahamas and Belarus because they contain at least one 'a'
 ```sql
 SELECT name, continent, CASE 
-	WHEN continent='Oceania' THEN 'Australasia'
-	WHEN continent='Eurasia' THEN 'Europe/Asia'
-	WHEN name='Turkey' THEN 'Europe/Asia'
-	WHEN continent='Caribbean' AND name LIKE 'B%' THEN 'North America'
-	WHEN continent='Caribbean' AND name NOT LIKE 'B%' THEN 'South America'
-	ELSE continent END
+WHEN continent='Oceania' THEN 'Australasia'
+WHEN continent='Eurasia' THEN 'Europe/Asia'
+WHEN name='Turkey' THEN 'Europe/Asia'
+WHEN continent='Caribbean' AND name LIKE 'B%' THEN 'North America'
+WHEN continent='Caribbean' AND name NOT LIKE 'B%' THEN 'South America'
+ELSE continent END
 FROM world
-	ORDER BY name;
+ORDER BY name;
 ```
