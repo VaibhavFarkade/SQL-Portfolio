@@ -35,3 +35,29 @@ HAVING COUNT(column2) > 5
 ORDER BY column1 ASC, column4 DESC
 LIMIT 10;
 ```
+
+---
+
+> String Manipulation:
+
+1. SUBSTRING_INDEX(str, delimiter, count)
+
+```sql
+Example:
+SUBSTRING_INDEX('Hello World', ' ', 1);
+Returns: 'Hello'
+```
+
+2. SUBSTRING(str, start, length)
+```sql
+Example:
+SUBSTRING('Hello World', 7, 5);
+Returns 'World'
+```
+
+3. SUBSTR(str, start, length)
+```sql
+Example:
+SUBSTR('Hello World', 7, 5);
+Returns 'World'
+```
