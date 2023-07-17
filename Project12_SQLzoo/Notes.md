@@ -61,3 +61,27 @@ Example:
 SUBSTR('Hello World', 7, 5);
 Returns 'World'
 ```
+---
+
+### Random peaks of interest
+
+1. Derived Table
+On the fly!
+```sql
+SELECT column1, column2, ...
+FROM (
+    SELECT number AS column1, 'A' AS column2
+    FROM (
+        SELECT 435.345 AS number UNION ALL
+        SELECT 3453.43 UNION ALL
+        SELECT 3453.4
+    ) AS subquery1
+    UNION
+    SELECT number AS column1, 'B' AS column2
+    FROM (
+        SELECT 345 AS number UNION ALL
+        SELECT 4354 UNION ALL
+        SELECT 436
+    ) AS subquery2
+) AS main_query;
+```
